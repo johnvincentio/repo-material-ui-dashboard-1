@@ -97,6 +97,7 @@ const config = {
 		new CopyWebpackPlugin([{ from: 'favicon.ico', to: '.' }], { debug: 'info' }),
 		new CopyWebpackPlugin([{ from: 'manifest.json', to: '.' }], { debug: 'info' }),
 
+		new CopyWebpackPlugin([{ from: 'src/assets/css', to: 'assets/css' }], { debug: 'info' }),
 		new CopyWebpackPlugin([{ from: 'src/assets/img', to: 'assets/img' }], { debug: 'info' }),
 		new CopyWebpackPlugin([{ from: 'src/assets/fonts', to: 'assets/fonts' }], { debug: 'info' })
 	]
