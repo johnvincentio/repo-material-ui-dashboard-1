@@ -54,14 +54,16 @@ const config = {
 				exclude: /node_modules/,
 				loader: 'babel-loader'
 			},
-			// { // regular css files
-			// 	test: /\.css$/,
-			// 	loader: ExtractTextPlugin.extract({
-			// 		fallback: 'style-loader/url!file-loader',
-			// 		use: ['css-loader'],
-			// 		publicPath: DIST_FOLDER_STYLE,
-			// 	}),
-			// },
+
+			{
+				// regular css files
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract({
+					fallback: 'style-loader/url!file-loader',
+					use: ['css-loader'],
+					publicPath: DIST_FOLDER_STYLE
+				})
+			},
 
 			{
 				test: /\.(sass|scss)$/,
@@ -91,6 +93,10 @@ const config = {
 		new webpack.EnvironmentPlugin(['NODE_ENV', 'API_KEY']),
 		extractSCSSBundle,
 		new CopyWebpackPlugin([{ from: 'index.html', to: '.' }], { debug: 'info' }),
+		new CopyWebpackPlugin([{ from: 'apple-icon.png', to: '.' }], { debug: 'info' }),
+		new CopyWebpackPlugin([{ from: 'favicon.ico', to: '.' }], { debug: 'info' }),
+		new CopyWebpackPlugin([{ from: 'manifest.json', to: '.' }], { debug: 'info' }),
+
 		new CopyWebpackPlugin([{ from: 'src/assets/img', to: 'assets/img' }], { debug: 'info' }),
 		new CopyWebpackPlugin([{ from: 'src/assets/fonts', to: 'assets/fonts' }], { debug: 'info' })
 	]
