@@ -19,8 +19,8 @@ function CustomInput({ ...props }) {
 	} = props;
 
 	const labelClasses = cx({
-		[` ${  classes.labelRootError}`]: error,
-		[` ${  classes.labelRootSuccess}`]: success && !error
+		[` ${classes.labelRootError}`]: error,
+		[` ${classes.labelRootSuccess}`]: success && !error
 	});
 	const inkbarClasses = cx({
 		[classes.inkbarError]: error,
@@ -33,7 +33,7 @@ function CustomInput({ ...props }) {
 	return (
 		<FormControl
 			{...formControlProps}
-			className={`${formControlProps.className  } ${  classes.formControl}`}
+			className={`${formControlProps.className} ${classes.formControl}`}
 		>
 			{labelText !== undefined ? (
 				<InputLabel className={classes.labelRoot + labelClasses} htmlFor={id} {...labelProps}>
@@ -51,9 +51,9 @@ function CustomInput({ ...props }) {
 				{...inputProps}
 			/>
 			{error ? (
-				<Clear className={`${classes.feedback  } ${  classes.labelRootError}`} />
+				<Clear className={`${classes.feedback} ${classes.labelRootError}`} />
 			) : success ? (
-				<Check className={`${classes.feedback  } ${  classes.labelRootSuccess}`} />
+				<Check className={`${classes.feedback} ${classes.labelRootSuccess}`} />
 			) : null}
 		</FormControl>
 	);
