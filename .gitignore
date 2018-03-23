@@ -1,0 +1,19 @@
+.DS_STORE
+
+# node
+node_modules
+
+# react
+dist/bundle.js
+
+# sass
+.sass-cache
+
+# env
+.env
+
+# vscode chrome extension
+.vscode/chrome
+
+logfile.txt
+*.log
