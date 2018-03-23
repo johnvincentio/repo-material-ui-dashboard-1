@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createBrowserHistory } from 'history';
+import { Router, Route, Switch } from 'react-router-dom';
 
-import { HashRouter as Router } from 'react-router-dom';
+import './components/material-dashboard-react.scss';
 
-import configureStore from './store/configureStore';
-import Root from './containers/Root';
+import indexRoutes from './routes/index';
 
-const store = configureStore();
+const hist = createBrowserHistory();
 
-console.log(`API_KEY ${process.env.API_KEY}`);
-
-document.addEventListener('DOMContentLoaded', () => {
-	ReactDOM.render(
-		<Router>
-			<Root store={store} />
-		</Router>,
-		document.getElementById('root'),
-	);
-});
+ReactDOM.render(
+	<Router history={hist}>
+		<Switch>
+			{indexRoutes.map((prop, key) => (
+				<Route path={prop.path} component={prop.component} key={key} />
+			))}
+		</Switch>
+	</Router>,
+	document.getElementById('root')
+);

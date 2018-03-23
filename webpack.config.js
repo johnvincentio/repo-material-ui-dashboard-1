@@ -1,4 +1,3 @@
-
 const webpack = require('webpack');
 const path = require('path');
 
@@ -19,14 +18,14 @@ const extractSCSSBundle = new ExtractTextPlugin({
 	allChunks: true
 });
 
-require('dotenv').config();		// load from .env file
+require('dotenv').config(); // load from .env file
 
 const config = {
 	// entry: ['./src/index.jsx', './src/scss/index.scss', './src/components/main.scss'],
 	entry: ['./src/index.jsx', './src/scss/index.scss'],
 	output: {
 		path: path.resolve('dist'),
-		filename: 'bundle.js',
+		filename: 'bundle.js'
 	},
 
 	devtool: 'inline-source-map', // development
@@ -34,7 +33,7 @@ const config = {
 	//	devtool: 'source-map',	// production
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
-		compress: false,		// true
+		compress: false, // true
 		// inline: true,
 		port: 8073,
 		clientLogLevel: 'info',
@@ -48,12 +47,12 @@ const config = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
+				loader: 'babel-loader'
 			},
 			{
 				test: /\.jsx$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
+				loader: 'babel-loader'
 			},
 			// { // regular css files
 			// 	test: /\.css$/,
@@ -83,18 +82,18 @@ const config = {
 				include: ASSETS_FOLDER,
 				loader: 'file-loader?name=assets/[name].[ext]'
 			}
-		],
+		]
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx']
 	},
 	plugins: [
 		new webpack.EnvironmentPlugin(['NODE_ENV', 'API_KEY']),
 		extractSCSSBundle,
 		new CopyWebpackPlugin([{ from: 'index.html', to: '.' }], { debug: 'info' }),
-		new CopyWebpackPlugin([{ from: 'src/images', to: 'images' }], { debug: 'info' }),
+		new CopyWebpackPlugin([{ from: 'src/assets/img', to: 'assets/img' }], { debug: 'info' }),
 		new CopyWebpackPlugin([{ from: 'src/assets/fonts', to: 'assets/fonts' }], { debug: 'info' })
-	],
+	]
 };
 
 module.exports = config;
