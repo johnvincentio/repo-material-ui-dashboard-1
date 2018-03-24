@@ -9,19 +9,6 @@ import indexRoutes from './routes/index';
 
 const hist = createBrowserHistory();
 
-console.log('***** in index.jsx');
-
-// ReactDOM.render(
-// 	<Router history={hist}>
-// 		<Switch>
-// 			{indexRoutes.map((prop, key) => (
-// 				<Route path={prop.path} component={prop.component} key={key} />
-// 			))}
-// 		</Switch>
-// 	</Router>,
-// 	document.getElementById('root')
-// );
-
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
 		<Router history={hist}>

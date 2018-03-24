@@ -7,6 +7,7 @@ import cx from 'classnames';
 import customInputStyle from '../../variables/styles/customInputStyle';
 
 function CustomInput({ ...props }) {
+	console.log('--- CustomInout: props ', props);
 	const {
 		classes,
 		formControlProps,
@@ -27,6 +28,9 @@ function CustomInput({ ...props }) {
 		[classes.inkbarSuccess]: success && !error,
 		[classes.inkbar]: !success && !error
 	});
+	console.log('labelClasses ', labelClasses);
+	console.log('inkbarClasses ', inkbarClasses);
+
 	const marginTop = cx({
 		[classes.marginTop]: labelText === undefined
 	});
